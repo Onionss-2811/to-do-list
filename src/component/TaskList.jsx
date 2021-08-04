@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import TodoList from "./ToDoList";
 import AddTask from "./AddTask";
 import EditTask from "./EditTask";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./style.css";
 
 class TaskList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tasks: ["Task 1", "Task 2"],
+      tasks: ["Task 1", "Task 2", "Task 3", "Task 4"],
       showAddForm: false,
       showEditForm: false,
       editTask: { id: -1, name: "" },
@@ -62,41 +64,44 @@ class TaskList extends Component {
       );
     } else {
       return (
-        <div className="container">
-          <br />
-          <br />
-          <button
-            type="button"
-            className="btn btn-outline-primary"
-            onClick={this.setStatus}
-          >
-            Add Task
-          </button>
-          <h2>List Task</h2>
-          <table className="table table-striped">
-            <thead>
-              <tr>
-                <th>Name of task</th>
-                <th>Edit</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.state.tasks.map(
-                function (name, index) {
-                  return (
-                    <TodoList
-                      name={name}
-                      openEditForm={this.openEditForm}
-                      getIndexTask={index}
-                      editTask={this.editTask}
-                      deleteTask={this.deleteTask}
-                    />
-                  );
-                }.bind(this)
-              )}
-            </tbody>
-          </table>
+        <div>
+          <div className="bg"></div>
+          <div className="bg bg2"></div>
+          <div className="bg bg3"></div>
+          <div className="content">
+            <div>
+                <div className="div-header">
+                  <h2>List Task</h2>
+                  <button type="button" className="btn btn-outline-primary btn-sm" onClick={this.setStatus}>
+                    Add Task
+                  </button>
+                </div>
+              <table className="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Name of task</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tr>
+                    {this.state.tasks.map(
+                      function (name, index) {
+                        return (
+                          <TodoList
+                            name={name}
+                            openEditForm={this.openEditForm}
+                            getIndexTask={index}
+                            editTask={this.editTask}
+                            deleteTask={this.deleteTask}
+                          />
+                        );
+                      }.bind(this)
+                    )}
+                </tr>
+              </table>
+            </div>
+          </div>
         </div>
       );
     }

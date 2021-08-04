@@ -11,27 +11,31 @@ class TodoList extends Component {
 
   render() {
     return (
-      <tr>
-        <td>{this.props.name}</td>
-        <td>
-          <button
-            type="button"
-            className="btn btn-outline-primary"
-            onClick={this.handleEdit}
-          >
-            <i className="far fa-edit"></i>Edit
-          </button>
-        </td>
-        <td>
-          <button
-            type="button"
-            className="btn btn-outline-primary"
-            onClick={this.handleDelete}
-          >
-            <i className="fa fa-trash"></i>Delete
-          </button>
-        </td>
-      </tr>
+    <div className="div-table-td">
+      <table className="div-table-table-td">
+            <tr>
+                <td className="td-to-do-list">{this.props.name}</td>
+                <td>
+                    <button
+                    type="button"
+                    className="btn btn-outline-primary btn-sm btn-width"
+                    onClick={this.handleEdit}
+                    >
+                    <i className="far fa-edit"></i>Edit
+                    </button>
+                </td>
+                <td>
+                    <button
+                    type="button"
+                    className="btn btn-outline-danger btn-sm"
+                    onClick={this.handleDelete}
+                    >
+                    <i className="fa fa-trash"></i>Delete
+                    </button>
+                </td>
+            </tr>
+      </table>      
+      </div>
     );
   }
 }

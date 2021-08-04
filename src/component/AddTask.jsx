@@ -22,40 +22,48 @@ class AddTask extends Component {
     });
   };
   render() {
-    if (this.state.showTaskList == true) {
+    if (this.state.showTaskList === true) {
       return <TaskList />;
     } else {
       return (
-        <React.Fragment>
-          <div className="container">
+        <>
+          <div className="bg"></div>
+          <div className="bg bg2"></div>
+          <div className="bg bg3"></div>
+          <div className="content">
             <h2>Add New Task</h2>
-            <div className="form-group">
-              <label>Name</label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Enter name of task"
-                onChange={this.isChangedName}
-              />
+            <div>
+              <div className="div-container"></div>
+              <div className="div-table"></div>
+              <table className="div-table-table">
+                <thead>
+                  <tr>
+                    <th>
+                      <label>Name of task:</label>
+                    </th>
+                    <th>
+                      <button type="button" className="btn btn-outline-danger btn-sm btn-size btn-float" onClick={this.linkList}>
+                        Back
+                      </button>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <input type="text" className="input-edit" placeholder="Enter name of task" onChange={this.isChangedName}/>
+                    </td>
+                    <td>
+                      <button type="submit" className="  btn btn-outline-primary btn-sm btn-size btn-float" onClick={this.handleAddTask}>
+                        Add
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-
-            <button
-              type="submit"
-              style={{ marginRight: 5 + "px" }}
-              className="btn btn-default"
-              onClick={this.handleAddTask}
-            >
-              Add
-            </button>
-            <button
-              type="button"
-              className="btn btn-default"
-              onClick={this.linkList}
-            >
-              Back
-            </button>
           </div>
-        </React.Fragment>
+        </>
       );
     }
   }
